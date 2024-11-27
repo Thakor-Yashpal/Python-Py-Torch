@@ -1,0 +1,22 @@
+name: my-pytorch-env
+channels:
+  - pytorch
+  - conda-forge  # or defaults
+dependencies:
+  - python=3.10  # Or your desired Python version
+  - pytorch
+  - torchvision
+  - torchaudio
+  - cpuonly  # For CPU-only
+  # If using CUDA, replace cpuonly with:
+  # - cudatoolkit=11.7  # Adjust CUDA version as needed 
+  - numpy
+  - pandas # Add other packages as required.
+  # ... other dependencies
+
+    - name: Install dependencies
+      run: |
+        ls -l # List files in the directory to verify checkout
+        pwd   # Print the current working directory for debugging
+        conda install mamba -n base -c conda-forge
+        mamba env update --file environment.yml --name base 
